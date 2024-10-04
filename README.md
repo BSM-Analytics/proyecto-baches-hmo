@@ -2,7 +2,7 @@
 
 Integrantes:
 
-Sebastian Browarski Ruiz [aXXXXXXXXX]
+Sebastian Browarski Ruiz [a219203551]
 Jesus Manuel Solis Duran [aXXXXXXXXX]
 Luis Fernando Martinez Mendoza [a224230121]
 
