@@ -1,9 +1,13 @@
-| Variable      | Tipo          | Descripción                                     | Valores Posibles             |
-| ------------- | ------------- | ----------------------------------------------- | ---------------------------- |
-|latitude       | float         | Latitud de la ubicación del reporte             | -90.0 a 90.0                 |
-|longitude      | float         | Longitud de la ubicación del reporte            | -180.0 a 180.0               |
-|date           | string        | Fecha en que se realizó el reporte              | Formato: YYYY-MM-DD          |
-|neighborhoods  | string        | Identificador de los vecindarios relacionados   | Lista de IDs de vecindarios  |
-|material       | int           | Tipo de material utilizado en la calle (código) | 1=asfalto, 2=concreto        |
-|description    | string        | Descripción del problema reportado              | Texto libre                  |
-|id             | int           | Identificador único del reporte                 | Número entero                |
+# Diccionario de Datos
+
+Este diccionario describe las columnas del conjunto de datos sobre baches en la ciudad de Hermosillo, Sonora.
+
+| Variable                 | Tipo             | Descripción                                                                     |
+|--------------------------|------------------|---------------------------------------------------------------------------------|
+|  latitude                |  float           | Latitud geográfica donde se reportó el bache.                                   |
+|  longitude               |  float           | Longitud geográfica donde se reportó el bache.                                  |
+|  CVEGEO                  |  int  /  NaN     | Código geográfico del área donde se encuentra el bache (puede ser nulo).        |
+|  date                    |  datetime        | Fecha en que se reportó el bache.                                               |
+|  neighborhoods           |  list[int]       | Código(s) del vecindario(s) donde se encuentra el bache.                        |
+|  description             |  string          | Descripción proporcionada por el usuario sobre la ubicación o situación del bache.|
+|  geometry                |  POINT           | Coordenadas geográficas representadas como un objeto geométrico tipo POINT.    |
