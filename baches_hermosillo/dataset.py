@@ -3,6 +3,7 @@ import pandas as pd # Importamos la libreria "pandas" para el manejo en DataFram
 import shutil # Importamos la libreria "shutils" para manejo de archivos y directorios
 import zipfile # Importamos la libreria "zipfile" para descomprimir carpetas comprimidas
 import os # Importamos la libreria "os" para manejo de rutas
+import time, datetime # Importamos las libreria "time" y "datetime" para generar timestamps y medir duraciones
 
 # ------ VARIABLES ESTATICAS DE CONFIGURACION ------
 
@@ -22,11 +23,59 @@ URL_SOCIOECONOMICO_HMO = "https://www.inegi.org.mx/contenidos/programas/ccpv/202
 SOCIOECONOMICO_ZIP_FILENAME = "socioeconomico_2020.zip"
 RAW_SOCIOECONOMICO_FILENAME = ""
 
+DATA_DESCRIPTION_FILENAME = "data_description.txt"
+
+# Plantilla para generacion de archivo TXT con informacion de datos descargados
+DATA_DESCRIPTION_TEMPLATE = \
+"""DESCRIPCION DE LOS DATOS DESCARGADOS:
+
+DATOS DEL BACHOMETRO DE HERMOSILLO ---------------------------------------------------*
+
+DESCRIPCION: Este conjunto de datos contiene informacion sobre baches reportados por ciudadanos
+en el municipio de Hermosillo, Sonora, en el periodo comprendido entre el 17 de septiembre del 2021
+hasta el ultimo mes transcurrido del actual año.
+
+Cuenta con informacion relevante tal como:
+Ubicacion (latitud, longitud) del bache reportado, Fecha y Comentarios.
+
+FUENTE: %s
+TIPO: API (no documentada)
+FECHA Y HORA DE DESCARGA: %s
+TIEMPO TOTAL DE EXTRACCION: %s s
+
+DATOS DE AGEBS DE HERMOSILLO ---------------------------------------------------*
+
+DESCRIPCION: Este conjunto de datos contiene las AGEBS del municipio de Hermosillo, Sonora, provistas
+por el INEGI en el año 2010. Este nos permitira clasificar distintas areas del municipio por alguna de
+sus caracteristicas socioeconomicas y ubicar mas claramente los baches del conjunto de datos del bachometro.
+
+La informacion de mayor relevancia que contiene son las AGEBS.
+
+FUENTE: %s
+TIPO: Descarga de archivo
+FECHA Y HORA DE DESCARGA: %s
+TIEMPO TOTAL DE EXTRACCION: %s s
+
+DATOS SOCIOECONOMICOS (REZAGO SOCIAL) DE HERMOSILLO ---------------------------------------------------*
+
+DESCRIPCION: Este conjunto de datos contiene informacion sobre el rezago social del municipio de Hermosillo,
+Sonora en el año 2020. Esto nos permitira identificar zonas con mayor rezago y relacionarlo con los AGEBS.
+
+Contiene informacion variada sobre indicadores socioeconomicos, de tipo cualitativo, que podremos trasladar
+a cuantitativo para clasificacion.
+
+FUENTE: %s
+TIPO DE FUENTE: Descarga de archivo
+FECHA Y HORA DE DESCARGA: %s
+TIEMPO TOTAL DE EXTRACCION: %s s"""
+
 # ------ PROCESO DE DESCARGA Y ALMACENAMIENTO ------
 
 # Aseguramos que existan los directorios destino, de lo contrario se generan
 if not os.path.exists("./data"): os.mkdir("./data")
 if not os.path.exists("./data/raw"): os.mkdir("./data/raw")
+
+start = time.time() # Iniciamos contador para medir tiempo de extraccion
 
 response_api_bachometro = requests.get(URL_BACHOMETRO_HMO)  # Enviamos una solicitud HTTP tipo GET hacia la API
 
@@ -36,6 +85,12 @@ df_bachometro = pd.DataFrame(list(response_api_bachometro.json())) # Depositamos
 
 #Almacenamos el contenido del DataFrame en un archivo CSV en el directorio data/raw
 df_bachometro.to_csv(os.path.join(STORAGE_PATH,RAW_BACHES_FILENAME))
+
+bachometro_download_timestamp = datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
+
+bachometro_extraction_time = time.time() - start # Calculamos el tiempo de extraccion transcurrido
+
+start = time.time() # Iniciamos nuevamente contador para medir tiempo de extraccion
 
 # Enviamos una solicitud HTTP tipo GET para descargar el archivo comprimido del endpoint del sitio web del INEGI
 response_agebs = requests.get(URL_AGEBS_HMO, allow_redirects=True)
@@ -63,6 +118,12 @@ with zipfile.ZipFile(ageb_content_directory + '/260300001.zip') as zip_ref:
 shutil.rmtree(ageb_content_directory)
 os.remove(ageb_zip_directory)
 
+ageb_download_timestamp = datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
+
+ageb_extraction_time = time.time() - start # Calculamos el tiempo de extraccion transcurrido
+
+start = time.time() # Iniciamos nuevamente contador para medir tiempo de extraccion
+
 # Definimos rutas que nos facilitaran el manejo de los archivos a extraer y almacenar
 socioeconomico_zip_directory = os.path.join(STORAGE_PATH, SOCIOECONOMICO_ZIP_FILENAME)
 socioeconomico_content_directory = os.path.splitext(socioeconomico_zip_directory)[0]
@@ -88,3 +149,28 @@ shutil.move(STORAGE_PATH + '/ageb_mza_urbana_26_cpv2020/conjunto_de_datos/conjun
 # Eliminamos los archivos residuales (eran parte del comprimido pero no tendran uso alguno en el proyecto)
 shutil.rmtree(STORAGE_PATH + '/ageb_mza_urbana_26_cpv2020')
 os.remove(socioeconomico_zip_directory)
+
+socioeconomico_download_timestamp = datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
+
+socioeconomico_extraction_time = time.time() - start # Calculamos el tiempo de extraccion transcurrido
+
+# Creamos el archivo de texto con la informacion sobre los datos descargados
+
+if os.path.exists(os.path.join(STORAGE_PATH, DATA_DESCRIPTION_FILENAME)):
+    # os.remove(os.path.join(STORAGE_PATH, DATA_DESCRIPTION_FILENAME))
+    file = open(DATA_DESCRIPTION_FILENAME, "r+")
+    file.seek(0)
+    file.truncate()
+
+with open(os.path.join(STORAGE_PATH, DATA_DESCRIPTION_FILENAME), "w") as file:
+    file.write(DATA_DESCRIPTION_TEMPLATE % (
+        URL_BACHOMETRO_HMO,
+        bachometro_download_timestamp,
+        bachometro_extraction_time,
+        URL_AGEBS_HMO,
+        ageb_download_timestamp,
+        ageb_extraction_time,
+        URL_SOCIOECONOMICO_HMO,
+        socioeconomico_download_timestamp,
+        socioeconomico_extraction_time
+    ))
