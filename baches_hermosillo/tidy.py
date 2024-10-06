@@ -18,36 +18,6 @@ baches_hermosillo_directory = os.path.join(RAW_PATH, "baches_hmo_2021_2024.csv")
 socioeconomico_hermosillo_directory = os.path.join(RAW_PATH, "conjunto_de_datos_ageb_urbana_26_cpv2020.csv")
 
 
-
-"""DESCRIPCION DE LOS DATOS:
-
-DATOS DEL BACHOMETRO DE HERMOSILLO ---------------------------------------------------*
-
-DESCRIPCION: Este conjunto de datos contiene informacion sobre baches reportados por ciudadanos
-en el municipio de Hermosillo, Sonora, en el periodo comprendido entre el 17 de septiembre del 2021
-hasta el ultimo mes transcurrido del actual año.
-
-Cuenta con informacion relevante tal como:
-Ubicacion (latitud, longitud) del bache reportado, Fecha y Comentarios.
-
-
-DATOS DE AGEBS DE HERMOSILLO ---------------------------------------------------*
-
-DESCRIPCION: Este conjunto de datos contiene las AGEBS del municipio de Hermosillo, Sonora, provistas
-por el INEGI en el año 2010. Este nos permitira clasificar distintas areas del municipio por alguna de
-sus caracteristicas socioeconomicas y ubicar mas claramente los baches del conjunto de datos del bachometro.
-
-La informacion de mayor relevancia que contiene son las AGEBS.
-
-DATOS SOCIOECONOMICOS (REZAGO SOCIAL) DE HERMOSILLO ---------------------------------------------------*
-
-DESCRIPCION: Este conjunto de datos contiene informacion sobre el rezago social del municipio de Hermosillo,
-Sonora en el año 2020. Esto nos permitira identificar zonas con mayor rezago y relacionarlo con los AGEBS.
-
-Contiene informacion variada sobre indicadores socioeconomicos, de tipo cualitativo, que podremos trasladar
-a cuantitativo para clasificacion.
-"""
-
 # ------ PROCESO DE ELABORACION Y GUARDADO DE ARCHIVOS TIDY ------
 
 # Aseguramos que existan los directorios destino, de lo contrario se generan
