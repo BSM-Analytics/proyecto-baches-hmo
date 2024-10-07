@@ -14,7 +14,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 
-Sebastian Browarski Ruiz [a219203551]   |   Jesus Manuel Solis Duran [aXXXXXXXXX]   |  Luis Fernando Martinez Mendoza [a224230121]
+Sebastian Browarski Ruiz [a219203551]   |   Jesus Manuel Solis Duran [a212211288]   |  Luis Fernando Martinez Mendoza [a224230121]
 
 <hr class="hr1" />
 
@@ -215,7 +215,7 @@ Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento
 <br>
 Desarrolladores:
 
-* Jesus Solis
+* Jesus Solis | Email: jesolis_14@hotmail.com | [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
 * Sebastian Browarski
 * Fernando Martinez | Email: lfmartinezmendoza@gmail.com | [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
 </details>

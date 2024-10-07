@@ -46,26 +46,24 @@ baches_hermosillo.set_crs(epsg=4326, inplace=True)
 
 """Usando el metodo sjoin pordemos unir ambos GeoDataFrame de modo izquierdo donde vea si los puntos 
 de la columna geometry de baches_hermosillo, este dentro de los polinomios de agebs_hermosillo"""
-baches_agebs_hermoisllo = gpd.sjoin(baches_hermosillo, agebs_hermosillo, how='left', predicate='within')
+baches_agebs_hermosillo = gpd.sjoin(baches_hermosillo, agebs_hermosillo, how='left', predicate='within')
 
 # Ya casi por terminar tomemos las columans que nos interesan
-baches_agebs_hermoisllo = baches_agebs_hermoisllo[['latitude', 'longitude','CVEGEO', 
+baches_agebs_hermosillo = baches_agebs_hermosillo[['latitude', 'longitude','CVEGEO', 
                                                    'date', 'neighborhoods', 'description', 'geometry']]
 
 
 # Por último cambiemos el tipo correcto de columna
-baches_agebs_hermoisllo['date'] = pd.to_datetime(baches_agebs_hermoisllo['date'])
-baches_agebs_hermoisllo['latitude'] = pd.to_numeric(baches_agebs_hermoisllo['latitude'])
-baches_agebs_hermoisllo['longitude'] = pd.to_numeric(baches_agebs_hermoisllo['longitude'])
+baches_agebs_hermosillo['date'] = pd.to_datetime(baches_agebs_hermosillo['date'])
+baches_agebs_hermosillo['latitude'] = pd.to_numeric(baches_agebs_hermosillo['latitude'])
+baches_agebs_hermosillo['longitude'] = pd.to_numeric(baches_agebs_hermosillo['longitude'])
 
 # Creamos un pandas con los datos socieconomicos de Hermosillo
 socioeconomico_hermosillo = pd.read_csv(socioeconomico_hermosillo_directory)
 
 # Lo que haremos en socioeconomico hermosillo sera solamente escribir el tipo de cada columna correctamente
-
 columnas_categoricas = ['ENTIDAD', 'MUN', 'LOC', 'AGEB', 'MZA']
 columnas_objeto = ['NOM_ENT', 'NOM_MUN', 'NOM_LOC']
-columnas_enteras = socioeconomico_hermosillo.columns.difference(columnas_categoricas + columnas_objeto)
 
 socioeconomico_hermosillo[columnas_categoricas] = \
                     socioeconomico_hermosillo[columnas_categoricas].astype('category')
@@ -73,12 +71,9 @@ socioeconomico_hermosillo[columnas_categoricas] = \
 socioeconomico_hermosillo[columnas_objeto] = \
                     socioeconomico_hermosillo[columnas_objeto].astype('object')
 
-socioeconomico_hermosillo[columnas_enteras] = \
-                    socioeconomico_hermosillo[columnas_enteras].astype('object')
-
 #Solamente queda guardas los DataFrame en el directorio /data/processed/
-baches_agebs_hermoisllo_cvs = os.path.join(PROCESSED_PATH, "baches_agebs_hermosillo.csv")
+baches_agebs_hermosillo_cvs = os.path.join(PROCESSED_PATH, "baches_agebs_hermosillo.csv")
 socioeconomico_hermosillo_csv = os.path.join(PROCESSED_PATH, "socioeconomico_hermosillo.csv")
 
-socioeconomico_hermosillo.to_csv(baches_agebs_hermoisllo_cvs, index=False)
+baches_agebs_hermosillo.to_csv(baches_agebs_hermosillo_cvs, index=False)
 socioeconomico_hermosillo.to_csv(socioeconomico_hermosillo_csv, index=False)
