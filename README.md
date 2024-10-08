@@ -173,7 +173,7 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 <details>
 <summary>Mini-EDA</summary>
 <br>
-    AQUI ENLACE A HTMLs de EDA
+    Puedes ver el EDA de baches haciendo [click aquí](./reports/baches_report.html).
 </details>
 
 <hr class="hr1" />
