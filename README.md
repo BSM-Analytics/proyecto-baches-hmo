@@ -1,22 +1,25 @@
-<style>
-.hr1 {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, #afa9a3, #616165, #fc7e4f);
-}
-</style>
-
 <banner float="left">
-  <img src="images/readme_banner.png" width="650" />
-  <img src="images/readme_astronaut.gif" width="300" />
+  <img src="images/readme_banner.png" width="100%" />
 </banner>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 
-Sebastian Browarski Ruiz [a219203551]   |   Jesus Manuel Solis Duran [a212211288]   |  Luis Fernando Martinez Mendoza [a224230121]
+Construido con:
 
-<hr class="hr1" />
+[![Python][python-shield]][python-url]
+[![HTML5][html5-shield]][html5-url]
+[![CSS][css-shield]][css-url]
+[![Markdown][md-shield]][md-url]
+[![Git][git-shield]][git-url]
+[![Github][github-shield]][github-url]
+
+[![Jupyter Notebooks][jupyter-shield]][jupyter-url]
+[![Python][ccds-shield]][ccds-url]
+
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Acerca del Proyecto</summary>
@@ -25,62 +28,77 @@ Buscamos determinar si existe una relacion entre la presencia y/o permanencia de
 
 Consideramos que los resultados serian de especial interes para todo aquel que reside en el municipio de Hermosillo,
 Sonora, sin embargo tambien podrian servir de referencia para habitantes de otras localidades de Mexico.
+
+<img src="images/readme_astronaut.gif" width="300" />
 </details>
 
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Estructura del Proyecto</summary>
 <br>
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
+
+```sh
+├── modules  <- Codigo fuente del proyecto
+│   │
+│   ├── __init__.py    <- Convierte el contenido de la carpeta modules en un modulo de Python
+│   │
+│   ├── dataset.py     <- Script para descarga de datos
+│   │
+│   └── tidy.py        <- Script para procesar datos crudos y darles un formato tidy
+│
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+│   ├── raw            <- El directorio con datos crudos - originales e inmutables
+│   │
+│   └── processed      <- El directorio con los datos en formato tidy
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── README.md          <- El README principal para desarrolladores que usaran el proyecto
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── Makefile           <- Makefile con comandos que facilitan el uso del proyecto
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── references         <- Diccionarios de datos, manuales, y otro material explicativo
+│   │
+│   ├── baches_diccionario.md                   <- Diccionario de dataset de baches
+│   │
+│   ├── referencias.md                          <- Referencias a fuentes utilizadas
+│   │
+│   ├── socioeconomico_2010_diccionario.csv     <- Diccionario de dataset de informacion socioeconomica
+│   │
+│   └── socioeconomico_2020_diccionario.csv     <- Diccionario de dataset de informacion socioeconomica
 │
-├── pyproject.toml     <- Project configuration file with package metadata for
-│                         baches_hermosillo and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+├── reports            <- Reportes de analisis (HTML, PDF, LaTeX, etc.)
+│   │
+│   ├── baches_report.html          <- Reporte EDA sobre datos de baches HMO
+│   │
+│   ├── hmo_ec_2020_report.html     <- Reporte EDA sobre datos socioeconomicos de HMO
+│   │
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+├── requirements.txt   <- Archivo que contiene los requerimientos (dependencias) para crear
+│                         el entorno virtual. Para este proyecto se genero con
+│                         "pip3 freeze > requirements.txt"
 │
-├── setup.cfg          <- Configuration file for flake8
+├── notebooks          <- Jupyter Notebooks utilizados unicamente, de momento, para pruebas
 │
-└── baches_hermosillo   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes baches_hermosillo a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling
-    │   ├── __init__.py
-    │   ├── predict.py          <- Code to run model inference with trained models
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+├── LICENSE            <- Licencia Open-Source del MIT adaptada para el proyecto
+│
+├── docs               <- Proyecto default de mkdocs
+│
+├── models             <- Directorio destinado a modelos - Temporalmente sin uso
+│
+├── pyproject.toml     <- Archivo de configuracion de proyecto con metadata del
+│                         paquete/modulo baches_hermosillo y configuracion para
+│                         otras herramientas e.g. black (formato)
+│
+└── setup.cfg          <- Archivo de configuracion para flake8
+```
 </details>
 
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Guia de Uso</summary>
@@ -152,31 +170,33 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
     ```sh
     cd modules
     ```
-2.  Abrir la herramienta de Jupyter Notebook. Esto abrira una IDE en el navegador predeterminado.
+2.  Ejecutar el script de Python denominado ***tidy.py***. Esto procesara todos los datos ubicados en
+    ***data/raw*** y generara los conjuntos de datos tidy en la carpeta ***data/processed***
     ```sh
-    jupyter notebook
+    python3 tidy.py
     ```
-3.  Abrir el notebook ***tidy.ipynb*** desde el menu Archivo/File en la IDE
-
-4.  Ejecutar todas las celdas del notebook ***tidy.ipynb***. Esto procesara todos los datos ubicados en ***data/raw*** y
-    generara los conjuntos de datos tidy en la carpeta ***data/processed***
-
-5.  Opcional: Verificar que se hayan descargado los datos a la carpeta ***data/processed***
+3.  Opcional: Verificar que se hayan descargado los datos a la carpeta ***data/processed***
     ```sh
     ls -d ./data/processed
     ```
 </details>
 </details>
 
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
-<summary>Mini-EDA</summary>
+<summary>EDAs</summary>
 <br>
-    Puedes ver el EDA de baches haciendo click en el url: https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html.
+
+1. [Reporte Datos Baches](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html)
+2. [Reporte Datos Socioeconomicos](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/hmo_ec_2020_report.html)
 </details>
 
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Fuentes</summary>
@@ -189,18 +209,9 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 
 </details>
 
-<hr class="hr1" />
-
-<details>
-<summary>Tecnologia & Herramientas</summary>
-<br>
-
-[![Python][python-shield]][python-url]
-[![Jupyter Notebooks][jupyter-shield]][jupyter-url]
-[![Python][ccds-shield]][ccds-url]
-</details>
-
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Licenciamiento</summary>
@@ -208,7 +219,9 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento LICENSE.
 </details>
 
-<hr class="hr1" />
+<div style="width: 100%;">
+  <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
+</div>
 
 <details>
 <summary>Contacto</summary>
@@ -228,6 +241,21 @@ Desarrolladores:
 
 [python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [python-url]: https://www.python.org/
+
+[html5-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[html5-url]: https://html.spec.whatwg.org/multipage/
+
+[css-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[css-url]: https://www.w3.org/Style/CSS/Overview.en.html
+
+[md-shield]: https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown
+[md-url]: https://www.markdownguide.org/
+
+[git-shield]: https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
+[git-url]: https://git-scm.com/
+
+[github-shield]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+[github-url]: https://github.com/
 
 [jupyter-shield]: https://img.shields.io/badge/Jupyter-Notebook-orange?style=flat&logo=jupyter
 [jupyter-url]: https://jupyter.org/
