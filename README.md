@@ -173,7 +173,7 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 <details>
 <summary>Mini-EDA</summary>
 <br>
-    Puedes ver el EDA de baches haciendo [click aquí](./reports/baches_report.html).
+    Puedes ver el EDA de baches haciendo [click aquí](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html).
 </details>
 
 <hr class="hr1" />
@@ -216,7 +216,7 @@ Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento
 Desarrolladores:
 
 * Jesus Solis | Email: jesolis_14@hotmail.com | [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
-* Sebastian Browarski
+* Sebastian Browarski | Email: sebas.browar@gmail.com
 * Fernando Martinez | Email: lfmartinezmendoza@gmail.com | [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
 </details>
 
