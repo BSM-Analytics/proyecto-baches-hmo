@@ -170,7 +170,7 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
     ```sh
     cd modules
     ```
-2.  Ejecutar el script de Python denominado ***dataset.py***. Esto procesara todos los datos ubicados en
+2.  Ejecutar el script de Python denominado ***tidy.py***. Esto procesara todos los datos ubicados en
     ***data/raw*** y generara los conjuntos de datos tidy en la carpeta ***data/processed***
     ```sh
     python3 tidy.py
@@ -190,8 +190,8 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 <summary>EDAs</summary>
 <br>
 
-1. [Reporte Datos Baches](reports/baches_report.html)
-2. [Reporte Datos Socioeconomicos](reports/hmo_ec_2020_report.html)
+1. [Reporte Datos Baches](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html)
+2. [Reporte Datos Socioeconomicos](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/hmo_ec_2020_report.html)
 </details>
 
 <div style="width: 100%;">
