@@ -3,7 +3,7 @@ import pandas as pd #Importamos el modulo pandas
 import os #Importamos el modulo os
 import geopandas as gpd #Importamos el modulo geopandas
 from shapely.geometry import Point #Importamos el metodo Point del modulo shapely 
-
+import numpy as np # Importamos el modulo numpy
 
 # ------ VARIABLES ESTATICAS DE CONFIGURACION ------
 
@@ -64,12 +64,17 @@ socioeconomico_hermosillo = pd.read_csv(socioeconomico_hermosillo_directory)
 # Lo que haremos en socioeconomico hermosillo sera solamente escribir el tipo de cada columna correctamente
 columnas_categoricas = ['ENTIDAD', 'MUN', 'LOC', 'AGEB', 'MZA']
 columnas_objeto = ['NOM_ENT', 'NOM_MUN', 'NOM_LOC']
+columnas_int = socioeconomico_hermosillo.columns.difference(columnas_categoricas + columnas_objeto)
 
 socioeconomico_hermosillo[columnas_categoricas] = \
                     socioeconomico_hermosillo[columnas_categoricas].astype('category')
 
 socioeconomico_hermosillo[columnas_objeto] = \
                     socioeconomico_hermosillo[columnas_objeto].astype('object')
+
+for col in columnas_int:
+    socioeconomico_hermosillo[col] = pd.to_numeric(socioeconomico_hermosillo[col], errors='coerce')
+        
 
 #Solamente queda guardas los DataFrame en el directorio /data/processed/
 baches_agebs_hermosillo_cvs = os.path.join(PROCESSED_PATH, "baches_agebs_hermosillo.csv")
