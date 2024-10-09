@@ -229,7 +229,7 @@ Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento
 Desarrolladores:
 
 * Jesus Solis | Email: jesolis_14@hotmail.com | [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
-* Sebastian Browarski
+* Sebastian Browarski | Email: sebas.browar@gmail.com
 * Fernando Martinez | Email: lfmartinezmendoza@gmail.com | [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
 </details>
 
