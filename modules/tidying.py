@@ -3,25 +3,19 @@ import pandas as pd #Importamos el modulo pandas
 import os #Importamos el modulo os
 import geopandas as gpd #Importamos el modulo geopandas
 from shapely.geometry import Point #Importamos el metodo Point del modulo shapely 
-import numpy as np # Importamos el modulo numpy
-
-# ------ VARIABLES ESTATICAS DE CONFIGURACION ------
-
-PROCESSED_PATH = "./data/processed"
-RAW_PATH = "./data/raw"
+import config # Importamos config.py como modulo para hacer uso de las variables ahi definidas
 
 # Creamos variables guardando los directorios que utilizaremos en parte de elaboración y guardado
-agebs_hermosillo_directory = os.path.join(RAW_PATH, "260300001a.shp")
+agebs_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.HMO_SHP_FILENAME)
 
-baches_hermosillo_directory = os.path.join(RAW_PATH, "baches_hmo_2021_2024.csv")
+baches_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_BACHES_FILENAME)
 
-socioeconomico_hermosillo_directory = os.path.join(RAW_PATH, "conjunto_de_datos_ageb_urbana_26_cpv2020.csv")
-
+socioeconomico_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_SOCIOECONOMICO_FILENAME)
 
 # ------ PROCESO DE ELABORACION Y GUARDADO DE ARCHIVOS TIDY ------
 
 # Aseguramos que existan los directorios destino, de lo contrario se generan
-if not os.path.exists("./data/processed"): os.mkdir("./data/processed")
+if not os.path.exists(config.TIDY_DATA_STORAGE_PATH): os.mkdir(config.TIDY_DATA_STORAGE_PATH)
 
 # Creamos un geopandas de las agebs de hermosillo
 agebs_hermosillo = gpd.read_file(agebs_hermosillo_directory)
@@ -52,7 +46,6 @@ baches_agebs_hermosillo = gpd.sjoin(baches_hermosillo, agebs_hermosillo, how='le
 baches_agebs_hermosillo = baches_agebs_hermosillo[['latitude', 'longitude','CVEGEO', 
                                                    'date', 'neighborhoods', 'description', 'geometry']]
 
-
 # Por último cambiemos el tipo correcto de columna
 baches_agebs_hermosillo['date'] = pd.to_datetime(baches_agebs_hermosillo['date'])
 baches_agebs_hermosillo['latitude'] = pd.to_numeric(baches_agebs_hermosillo['latitude'])
@@ -74,11 +67,10 @@ socioeconomico_hermosillo[columnas_objeto] = \
 
 for col in columnas_int:
     socioeconomico_hermosillo[col] = pd.to_numeric(socioeconomico_hermosillo[col], errors='coerce')
-        
 
-#Solamente queda guardas los DataFrame en el directorio /data/processed/
-baches_agebs_hermosillo_cvs = os.path.join(PROCESSED_PATH, "baches_agebs_hermosillo.csv")
-socioeconomico_hermosillo_csv = os.path.join(PROCESSED_PATH, "socioeconomico_hermosillo.csv")
+# Solamente queda guardar los DataFrame en el directorio /data/processed/
+baches_agebs_hermosillo_cvs = os.path.join(config.TIDY_DATA_STORAGE_PATH, config.TIDY_BACHE_AGEB_DATA_FILENAME)
+socioeconomico_hermosillo_csv = os.path.join(config.TIDY_DATA_STORAGE_PATH, config.TIDY_SOCIOECONOMICO_DATA_FILENAME)
 
 baches_agebs_hermosillo.to_csv(baches_agebs_hermosillo_cvs, index=False)
 socioeconomico_hermosillo.to_csv(socioeconomico_hermosillo_csv, index=False)

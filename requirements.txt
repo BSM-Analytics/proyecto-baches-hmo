@@ -6,7 +6,6 @@ asttokens==2.4.1
 async-lru==2.0.4
 attrs==24.2.0
 babel==2.16.0
--e git+https://github.com/MCD-IdC-BSM/proyecto-baches-hmo.git@6e842ff5338b6cda11df1e541680d029a8b7c60d#egg=baches_hermosillo
 beautifulsoup4==4.12.3
 black==24.8.0
 bleach==6.1.0
@@ -32,7 +31,7 @@ httpcore==1.0.6
 httpx==0.27.2
 idna==3.10
 ipykernel==6.29.5
-ipython==8.28.0
+ipython
 isoduration==20.11.0
 isort==5.13.2
 jedi==0.19.1
@@ -68,7 +67,7 @@ nbformat==5.10.4
 nest-asyncio==1.6.0
 notebook==7.2.2
 notebook_shim==0.2.4
-numpy==2.1.1
+numpy
 overrides==7.7.0
 packaging==24.1
 pandas==2.2.3
@@ -103,7 +102,7 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rpds-py==0.20.0
 scikit-learn==1.5.2
-scipy==1.14.1
+scipy
 Send2Trash==1.8.3
 setuptools==75.1.0
 shapely==2.0.6

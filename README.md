@@ -5,7 +5,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 
-Construido con:
+### Construido con:
 
 [![Python][python-shield]][python-url]
 [![HTML5][html5-shield]][html5-url]
@@ -22,14 +22,19 @@ Construido con:
 </div>
 
 <details>
-<summary>Acerca del Proyecto</summary>
+<summary>
+
+### Acerca del Proyecto :dart:
+</summary>
 <br>
-Buscamos determinar si existe una relacion entre la presencia y/o permanencia de baches en las calles versus las caracteristicas socioeconomicas, para distintas zonas del municipio de Hermosillo, Sonora.
 
-Consideramos que los resultados serian de especial interes para todo aquel que reside en el municipio de Hermosillo,
-Sonora, sin embargo tambien podrian servir de referencia para habitantes de otras localidades de Mexico.
+Buscamos determinar si existe una relacion entre la presencia y/o **permanencia de baches** en las calles versus las **caracteristicas socioeconomicas**, para **distintas zonas** del municipio de **Hermosillo, Sonora**.
+<br />
 
-<img src="images/readme_astronaut.gif" width="300" />
+Consideramos que los resultados serian de **especial interes** para todo **ciudadano** que reside en el municipio de Hermosillo,
+Sonora, sin embargo tambien podrian servir de referencia a las **autoridades locales** e inclusive a habitantes de otras localidades de Mexico.
+
+<img src="images/readme_astronaut.gif" width="300"/>
 </details>
 
 <div style="width: 100%;">
@@ -37,7 +42,10 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 </div>
 
 <details>
-<summary>Estructura del Proyecto</summary>
+<summary>
+
+### Estructura del Proyecto :file_folder:
+</summary>
 <br>
 
 ```sh
@@ -101,10 +109,17 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 </div>
 
 <details>
-<summary>Guia de Uso</summary>
-<br>
+<summary>
+
+### Guia de Uso :notebook:
+</summary>
+
 <details>
-<summary>Clonando el Repositorio</summary>
+
+<summary>
+
+#### Clonando el Repositorio :small_red_triangle_down:
+</summary>
 <br>
 
 1. Desde una terminal, navegar hasta el directorio donde se desea clonar el repositorio
@@ -116,9 +131,21 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
     git clone https://github.com/MCD-IdC-BSM/proyecto-baches-hmo.git
     ```
 </details>
-<br>
+
+
+
 <details>
-<summary>Creando el Entorno Virtual</summary>
+<summary>
+
+#### Con Python :snake:
+</summary>
+<br>
+
+<details>
+<summary>
+
+#### Creando el Entorno Virtual
+</summary>
 <br>
 
 1.  Desde una terminal, navegar hasta el directorio donde se clono el repositorio
@@ -144,8 +171,12 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
     ```
 </details>
 <br>
+
 <details>
-<summary>Descargando los Datos</summary>
+<summary>
+
+#### Descargando los Datos
+</summary>
 <br>
 
 1.  Desde una terminal, estando ubicado en el directorio raiz del proyecto, navegar hacia el directorio ***modules***
@@ -162,8 +193,12 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
     ```
 </details>
 <br>
+
 <details>
-<summary>Procesando los Datos a Formato Tidy</summary>
+<summary>
+
+#### Procesando los Datos a Formato Tidy
+</summary>
 <br>
 
 1.  Desde una terminal, estando ubicado en el directorio raiz del proyecto, navegar hacia el directorio ***modules***
@@ -182,12 +217,46 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 </details>
 </details>
 
+<details>
+<summary>
+
+#### Con Make :arrow_right:
+</summary>
+<br>
+
+1. Se puede ejecutar el pipeline completo con el comando:
+    ```sh
+    make execute_full_pipeline
+    ```
+2. Para ejecutar el pipeline por cada una de sus etapas, se puede utilizar los siguientes comandos:
+    ```sh
+    make create_venv
+    ```
+    ```sh
+    make activate_venv
+    ```
+    ```sh
+    make install_venv_requirements
+    ```
+    ```sh
+    make download_data
+    ```
+    ```sh
+    make tidy_data
+    ```
+</details>
+
+</details>
+
 <div style="width: 100%;">
   <img src="images/sep_line.svg" style="width: 100%;" alt="sep_line">
 </div>
 
 <details>
-<summary>EDAs</summary>
+<summary>
+
+### EDAs :bar_chart:
+</summary>
 <br>
 
 1. [Reporte Datos Baches](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html)
@@ -199,14 +268,15 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 </div>
 
 <details>
-<summary>Fuentes</summary>
+<summary>
+
+### Fuentes :information_source:
+</summary>
 <br>
 
 1. [API del Sitio Web del Bachometro del Ayuntamiento de Hermosillo](https://bachometro.hermosillo.gob.mx/)
 2. [AGEBS INEGI Hermosillo (2021)](https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/urbana/SHP_2/Sonora/702825317744_s.zip)
 3. [Indicadores Socioeconomicos INEGI Hermosillo (2020)](https://www.inegi.org.mx/contenidos/programas/ccpv/2020/datosabiertos/ageb_manzana/ageb_mza_urbana_26_cpv2020_csv.zip)
-
-
 </details>
 
 <div style="width: 100%;">
@@ -214,9 +284,13 @@ Sonora, sin embargo tambien podrian servir de referencia para habitantes de otra
 </div>
 
 <details>
-<summary>Licenciamiento</summary>
+<summary>
+
+### Licenciamiento :scroll:
+</summary>
 <br>
-Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento LICENSE.
+
+Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento [LICENSE](LICENSE).
 </details>
 
 <div style="width: 100%;">
@@ -224,13 +298,17 @@ Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento
 </div>
 
 <details>
-<summary>Contacto</summary>
-<br>
-Desarrolladores:
+<summary>
 
-* Jesus Solis | Email: jesolis_14@hotmail.com | [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
-* Sebastian Browarski | Email: sebas.browar@gmail.com
-* Fernando Martinez | Email: lfmartinezmendoza@gmail.com | [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
+### Contacto :mailbox_with_mail:
+</summary>
+<br>
+
+#### Desarrolladores: :keyboard:
+
+* **Jesus Solis |** Email: jesolis_14@hotmail.com **|** [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
+* **Sebastian Browarski |** Email: sebas.browar@gmail.com
+* **Fernando Martinez |** Email: lfmartinezmendoza@gmail.com **|** [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
 </details>
 
 [contributors-shield]: https://img.shields.io/github/contributors/MCD-IdC-BSM/proyecto-baches-hmo.svg?style=for-the-badge
