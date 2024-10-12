@@ -11,27 +11,41 @@ PYTHON_INTERPRETER = python3
 #################################################################################
 
 
-## Create & Activate Python Virtual Environment
-.PHONY: createvenv
-createvenv:
+## Create Python Virtual Environment
+.PHONY: create_venv
+create_venv:
 	$(PYTHON_INTERPRETER) -m venv venv
-	source activate venv
 
-## Install Python Dependencies
-.PHONY: requirements
-requirements:
+## Activate Python Virtual Environment
+.PHONY: activate_venv
+activate_venv:
+	(source venv/bin/activate;)
+
+## Install venv Python Dependencies
+.PHONY: install_venv_requirements
+install_venv_requirements:
 	$(PYTHON_INTERPRETER) -m pip install -U pip
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Run dataset.py
-.PHONY: dldata
-dldata:
+.PHONY: download_data
+download_data:
 	$(PYTHON_INTERPRETER) modules/dataset.py
 
 ## Run tidy.py
-.PHONY: prcsdata
-prcsdata:
-	$(PYTHON_INTERPRETER) modules/tidy.py
+.PHONY: tidy_data
+tidy_data:
+	$(PYTHON_INTERPRETER) modules/tidying.py
+
+## Run full pipeline
+.PHONY: execute_full_pipeline
+execute_full_pipeline:
+	$(PYTHON_INTERPRETER) -m venv venv
+	(source venv/bin/activate;)
+	$(PYTHON_INTERPRETER) -m pip install -U pip
+	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	$(PYTHON_INTERPRETER) modules/dataset.py
+	$(PYTHON_INTERPRETER) modules/tidying.py
 
 #################################################################################
 # PROJECT RULES                                                                 #
