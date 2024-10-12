@@ -55,7 +55,17 @@ Sonora, sin embargo tambien podrian servir de referencia a las **autoridades loc
 │   │
 │   ├── dataset.py     <- Script para descarga de datos
 │   │
-│   └── tidy.py        <- Script para procesar datos crudos y darles un formato tidy
+│   ├── tidying.py     <- Script para procesar datos crudos y darles un formato tidy
+│   │
+│   ├── tools.py       <- Archivo con funciones desarrolladas para el proyecto
+│   │
+│   ├── config.py      <- Archivo para depositar configuraciones y variables
+│   │
+│   └── templates      <- El directorio con los datos en formato tidy
+│       │
+│       ├── data_download_log_template  <- Plantilla para bitacora de descarga de datos
+│       │
+│       └── data_tidying_log_template   <- Plantilla para bitacora de procesamiento de datos a formato tidy
 │
 ├── data
 │   ├── raw            <- El directorio con datos crudos - originales e inmutables
@@ -68,13 +78,17 @@ Sonora, sin embargo tambien podrian servir de referencia a las **autoridades loc
 │
 ├── references         <- Diccionarios de datos, manuales, y otro material explicativo
 │   │
-│   ├── baches_diccionario.md                   <- Diccionario de dataset de baches
+│   ├── raw     <- El directorio con los diccionarios de datos crudos
+│   │   │
+│   │   ├── baches_raw_diccionario.md  <- Diccionario Datos Baches crudos
+│   │   │
+│   │   └── socioeconomico_2020_raw_diccionario.md   <- Diccionario Datos SE crudos
 │   │
-│   ├── referencias.md                          <- Referencias a fuentes utilizadas
-│   │
-│   ├── socioeconomico_2010_diccionario.csv     <- Diccionario de dataset de informacion socioeconomica
-│   │
-│   └── socioeconomico_2020_diccionario.csv     <- Diccionario de dataset de informacion socioeconomica
+│   └── processed     <- El directorio con los diccionarios de datos en formato tidy
+│       │
+│       ├── baches_processed_diccionario.md  <- Diccionario Datos Baches/AGEB Tidy
+│       │
+│       └── socioeconomico_2020_processed_diccionario.md   <- Diccionario Datos SE Tidy
 │
 ├── reports            <- Reportes de analisis (HTML, PDF, LaTeX, etc.)
 │   │

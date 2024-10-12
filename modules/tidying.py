@@ -2,7 +2,7 @@
 import pandas as pd #Importamos el modulo pandas
 import os #Importamos el modulo os
 import geopandas as gpd #Importamos el modulo geopandas
-from shapely.geometry import Point #Importamos el metodo Point del modulo shapely 
+from shapely.geometry import Point #Importamos el metodo Point del modulo shapely
 import config # Importamos config.py como modulo para hacer uso de las variables ahi definidas
 
 # Creamos variables guardando los directorios que utilizaremos en parte de elaboración y guardado

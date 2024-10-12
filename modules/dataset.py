@@ -18,7 +18,6 @@ bachometro_download_timestamp = tools.download_baches_data(
 
 bachometro_extraction_time = time.time() - start # Calculamos el tiempo de extraccion transcurrido
 
-
 start = time.time() # Iniciamos nuevamente contador para medir tiempo de extraccion
 
 ageb_download_timestamp = tools.download_ageb_data(
