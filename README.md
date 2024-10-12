@@ -142,11 +142,9 @@ Sonora, sin embargo tambien podrian servir de referencia a las **autoridades loc
     ```
 2. Clonar el repositorio
     ```sh
-    git clone https://github.com/MCD-IdC-BSM/proyecto-baches-hmo.git
+    git clone https://github.com/BSM-Analytics/proyecto-baches-hmo.git
     ```
 </details>
-
-
 
 <details>
 <summary>
@@ -273,8 +271,8 @@ Sonora, sin embargo tambien podrian servir de referencia a las **autoridades loc
 </summary>
 <br>
 
-1. [Reporte Datos Baches](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/baches_report.html)
-2. [Reporte Datos Socioeconomicos](https://mcd-idc-bsm.github.io/proyecto-baches-hmo/reports/hmo_ec_2020_report.html)
+1. [Reporte Datos Baches](https://bsm-analytics.github.io/proyecto-baches-hmo/reports/baches_report.html)
+2. [Reporte Datos Socioeconomicos](https://bsm-analytics.github.io/proyecto-baches-hmo/reports/hmo_ec_2020_report.html)
 </details>
 
 <div style="width: 100%;">
@@ -325,11 +323,11 @@ Distribuido bajo la licencia del MIT. Para mas informacion consulte el documento
 * **Fernando Martinez |** Email: lfmartinezmendoza@gmail.com **|** [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
 </details>
 
-[contributors-shield]: https://img.shields.io/github/contributors/MCD-IdC-BSM/proyecto-baches-hmo.svg?style=for-the-badge
-[contributors-url]: https://github.com/MCD-IdC-BSM/proyecto-baches-hmo/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/BSM-Analytics/proyecto-baches-hmo.svg?style=for-the-badge
+[contributors-url]: https://github.com/BSM-Analytics/proyecto-baches-hmo/graphs/contributors
 
-[license-shield]: https://img.shields.io/github/license/MCD-IdC-BSM/proyecto-baches-hmo.svg?style=for-the-badge
-[license-url]: https://github.com/MCD-IdC-BSM/proyecto-baches-hmo/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/BSM-Analytics/proyecto-baches-hmo.svg?style=for-the-badge
+[license-url]: https://github.com/BSM-Analytics/proyecto-baches-hmo/blob/master/LICENSE.txt
 
 [python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [python-url]: https://www.python.org/
