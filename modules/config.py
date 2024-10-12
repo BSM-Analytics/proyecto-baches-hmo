@@ -1,6 +1,6 @@
 # Rutas default para almacenamiento de datos en sus distintas etapas
 RAW_DATA_STORAGE_PATH = "./data/raw"
-TIDY_DATA_STORAGE_PATH = "./data/tidying"
+TIDY_DATA_STORAGE_PATH = "./data/processed"
 
 # Endpoint a AJAX API del Bachometro de Hermosillo (encontrado monitoreando el trafico en el sitio web)
 URL_BACHOMETRO_HMO = "https://bachometro.hermosillo.gob.mx/mapa/ajax"
