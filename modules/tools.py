@@ -123,6 +123,32 @@ def download_se_data(file_url:str, zip_filename:str, storage_path:str):
 
     return datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
 
+@exec_time
+def download_se_ageb_data(file_url:str, zip_filename:str, storage_path:str):
+
+    """
+    DOCSTRING PENDING
+    """
+
+    # Definimos rutas que nos facilitaran el manejo de los archivos a extraer y almacenar
+    socioeconomico_zip_directory = os.path.join(storage_path, zip_filename)
+    socioeconomico_content_directory = os.path.splitext(socioeconomico_zip_directory)[0]
+
+    # Enviamos una solicitud HTTP tipo GET para descargar el archivo comprimido del endpoint del sitio web del INEGI
+    response_socioeconomico = requests.get(file_url, allow_redirects=True)
+
+    # Almacenamos la carpeta comprimida ZIP
+    if not os.path.exists(socioeconomico_zip_directory):
+        open(socioeconomico_zip_directory, 'wb').write(response_socioeconomico.content)
+
+    # Extraemos los archivos de la carpeta comprimida ZIP
+    with zipfile.ZipFile(socioeconomico_zip_directory) as zip_ref:
+        zip_ref.extractall(storage_path)
+
+    # Eliminamos los archivos residuales 
+    os.remove(socioeconomico_zip_directory)
+
+    return datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
 
 def check_create_raw_dir(path:str):
 

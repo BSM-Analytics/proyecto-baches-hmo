@@ -17,6 +17,11 @@ URL_SOCIOECONOMICO_HMO = "https://www.inegi.org.mx/contenidos/programas/ccpv/202
 SOCIOECONOMICO_ZIP_FILENAME = "socioeconomico_2020.zip"
 RAW_SOCIOECONOMICO_FILENAME = "conjunto_de_datos_ageb_urbana_26_cpv2020.csv"
 
+# Endpoint para descarga de archivo xlsx con datos socioeconomicos por AGEB de Hermosillo en el sitio web Coneval
+URL_SOCIOECONOMICO_AGEB_HMO = "https://www.coneval.org.mx/Medicion/Documents/Pobreza_urbana/Base_de_datos/Base_de_datos_de_pobreza_AGEB_segun_entidad_federativa_2015.zip"
+SOCIOECONOMOCO_AGEB_ZIP_FILENAME = "socioeconomico_ageb_2015.zip"
+RAW_SOCIOECONOIMICO_AGEB_FILENAME = "socioeconimico_ageb_2015.xlsx"
+
 # Informacion para generacion de archivo TXT con informacion de datos
 RAW_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_download_log_template.txt"
 RAW_DATA_DOWNLOAD_LOG_FILENAME = "raw_data_download_log.txt"
