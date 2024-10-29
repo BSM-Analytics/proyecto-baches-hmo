@@ -35,6 +35,12 @@ try:
         config.RAW_DATA_STORAGE_PATH
     )
 
+    socioeconomico_ageb_download_timestamp,socioeconomico_ageb_extraction_time = tools.download_se_ageb_data(
+        config.URL_SOCIOECONOMICO_AGEB_HMO,
+        config.SOCIOECONOMOCO_AGEB_FILENAME,
+        config.RAW_DATA_STORAGE_PATH
+    )
+
     # Creamos el archivo de texto con la informacion sobre los datos descargados
 
     values = (  config.URL_BACHOMETRO_HMO,
@@ -45,7 +51,10 @@ try:
                 ageb_extraction_time,
                 config.URL_SOCIOECONOMICO_HMO,
                 socioeconomico_download_timestamp,
-                socioeconomico_extraction_time
+                socioeconomico_extraction_time,
+                config.URL_SOCIOECONOMICO_AGEB_HMO,
+                socioeconomico_ageb_download_timestamp,
+                socioeconomico_ageb_extraction_time
             )
 
     tools.fill_template(

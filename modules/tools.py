@@ -123,6 +123,28 @@ def download_se_data(file_url:str, zip_filename:str, storage_path:str):
 
     return datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
 
+@exec_time
+def download_se_ageb_data(file_url:str, filename:str, storage_path:str):
+
+    """
+    DOCSTRING PENDING
+    file_url = url
+    filename = nombre que deseo pornerle al archivo
+    storage_path = direccion de donde se va a guardar el archvio
+    """
+
+    # Definimos rutas que nos facilitaran el manejo de los archivos a extraer y almacenar
+    socioeconomico_directory = os.path.join(storage_path, filename)
+
+    # Enviamos una solicitud HTTP tipo GET para descargar el archivo comprimido del endpoint del sitio web del INEGI
+    response_socioeconomico = requests.get(file_url, allow_redirects=True)
+
+    # Almacenamos la carpeta comprimida ZIP
+    if not os.path.exists(socioeconomico_directory):
+        open(socioeconomico_directory, 'wb').write(response_socioeconomico.content)
+
+
+    return datetime.datetime.now() # Obtenemos timestamp de finalizacion de extraccion de datos
 
 def check_create_raw_dir(path:str):
 
@@ -203,4 +225,28 @@ def tidy_se_data(socioeconomico_hermosillo_directory:str):
     for col in columnas_int:
         socioeconomico_hermosillo[col] = pd.to_numeric(socioeconomico_hermosillo[col], errors='coerce')
 
-    return socioeconomico_hermosillo
+    return socioeconomico_hermosillo[socioeconomico_hermosillo['NOM_LOC']== 'Hermosillo']
+
+
+@exec_time
+def merge_se_agebs_data(agebs_hmo_dir:str, se_agebs_hmo_dir:str):
+
+    # Creamos un geopandas de las agebs de hermosillo
+    agebs_hermosillo = gpd.read_file(agebs_hmo_dir)
+    agebs_hermosillo.CVEGEO = agebs_hermosillo.CVEGEO.str[-4:]
+    
+    # Creamos un pandas con los datos de rezago social
+    socioeconomico_agebs_hermosillo = pd.read_excel(se_agebs_hmo_dir)
+    
+    # Regresamos un DataFrame que nos haga un merge entre los datos que nos interesan
+    return agebs_hermosillo.merge(socioeconomico_agebs_hermosillo, left_on='CVEGEO', right_on='AGEB')
+
+
+
+@exec_time
+def tidy_se_ageb_data(se_ageb_hermosillo:str):
+    se_ageb_hermosillo['GM_2020'] = se_ageb_hermosillo['GM_2020'].astype('category')
+    # Lo que haremos en socioeconomico hermosillo sera solamente escribir el tipo de cada columna correctamente
+    socioeconomico_ageb_hermosillo = se_ageb_hermosillo[['CVEGEO','POB_TOT','IM_2020','GM_2020','IMN_2020','geometry']]
+
+    return socioeconomico_ageb_hermosillo
