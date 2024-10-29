@@ -18,9 +18,9 @@ SOCIOECONOMICO_ZIP_FILENAME = "socioeconomico_2020.zip"
 RAW_SOCIOECONOMICO_FILENAME = "conjunto_de_datos_ageb_urbana_26_cpv2020.csv"
 
 # Endpoint para descarga de archivo xlsx con datos socioeconomicos por AGEB de Hermosillo en el sitio web Coneval
-URL_SOCIOECONOMICO_AGEB_HMO = "https://www.coneval.org.mx/Medicion/Documents/Pobreza_urbana/Base_de_datos/Base_de_datos_de_pobreza_AGEB_segun_entidad_federativa_2015.zip"
-SOCIOECONOMOCO_AGEB_ZIP_FILENAME = "socioeconomico_ageb_2015.zip"
-RAW_SOCIOECONOIMICO_AGEB_FILENAME = "socioeconimico_ageb_2015.xlsx"
+URL_SOCIOECONOMICO_AGEB_HMO = "https://datos.sonora.gob.mx/dataset/5e793058-f3bd-4dbb-b250-401e1f54a13e/resource/ab445a80-55b5-40b2-837a-09174be9391b/download/indice-de-marginacion-ageb-2020.xlsx"
+SOCIOECONOMOCO_AGEB_FILENAME = "pobreza_ageb_2020.xlsx"
+RAW_SOCIOECONOIMICO_AGEB_FILENAME = "pobreza_ageb_2020.xlsx"
 
 # Informacion para generacion de archivo TXT con informacion de datos
 RAW_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_download_log_template.txt"
@@ -29,7 +29,10 @@ RAW_DATA_DOWNLOAD_LOG_FILENAME = "raw_data_download_log.txt"
 # Nombres para archivos de datos en formato tidy
 TIDY_BACHE_AGEB_DATA_FILENAME = "tidy_baches_agebs_hmo.csv"
 TIDY_SOCIOECONOMICO_DATA_FILENAME = "tidy_socioeconomico_hermosillo.csv"
+TIDY_SOCIOECONOMICO_AGEB_DATA_FILENAME = "tidy_socioeconimico_ageb_hermosillo.csv"
 
 # Informacion para generacion de archivo TXT con informacion de datos
 TIDY_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_tidying_log_template.txt"
 TIDY_DATA_DOWNLOAD_LOG_FILENAME = "data_tidying_log.txt"
+
+
