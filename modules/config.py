@@ -20,7 +20,7 @@ RAW_SOCIOECONOMICO_FILENAME = "conjunto_de_datos_ageb_urbana_26_cpv2020.csv"
 # Endpoint para descarga de archivo xlsx con datos socioeconomicos por AGEB de Hermosillo en el sitio web Coneval
 URL_SOCIOECONOMICO_AGEB_HMO = "https://datos.sonora.gob.mx/dataset/5e793058-f3bd-4dbb-b250-401e1f54a13e/resource/ab445a80-55b5-40b2-837a-09174be9391b/download/indice-de-marginacion-ageb-2020.xlsx"
 SOCIOECONOMOCO_AGEB_FILENAME = "pobreza_ageb_2020.xlsx"
-RAW_SOCIOECONOIMICO_AGEB_FILENAME = "pobreza_ageb_2020.xlsx"
+RAW_SOCIOECONOMICO_AGEB_FILENAME = "pobreza_ageb_2020.xlsx"
 
 # Informacion para generacion de archivo TXT con informacion de datos
 RAW_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_download_log_template.txt"

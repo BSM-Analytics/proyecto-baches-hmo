@@ -16,7 +16,7 @@ logging.basicConfig(
 agebs_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.HMO_SHP_FILENAME)
 baches_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_BACHES_FILENAME)
 socioeconomico_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_SOCIOECONOMICO_FILENAME)
-socioeconomico_ageb_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_SOCIOECONOIMICO_AGEB_FILENAME)
+socioeconomico_ageb_hermosillo_directory = os.path.join(config.RAW_DATA_STORAGE_PATH, config.RAW_SOCIOECONOMICO_AGEB_FILENAME)
 
 # ------ PROCESO DE ELABORACION Y GUARDADO DE ARCHIVOS TIDY ------
 
