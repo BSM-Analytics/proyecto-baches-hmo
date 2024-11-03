@@ -27,9 +27,9 @@ RAW_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_download_log_templ
 RAW_DATA_DOWNLOAD_LOG_FILENAME = "raw_data_download_log.txt"
 
 # Nombres para archivos de datos en formato tidy
-TIDY_BACHE_AGEB_DATA_FILENAME = "tidy_baches_agebs_hmo.csv"
+TIDY_BACHE_AGEB_DATA_FILENAME = "tidy_baches_agebs_hmo.shp"
 TIDY_SOCIOECONOMICO_DATA_FILENAME = "tidy_socioeconomico_hermosillo.csv"
-TIDY_SOCIOECONOMICO_AGEB_DATA_FILENAME = "tidy_socioeconimico_ageb_hermosillo.csv"
+TIDY_SOCIOECONOMICO_AGEB_DATA_FILENAME = "tidy_socioeconimico_ageb_hermosillo.shp"
 
 # Informacion para generacion de archivo TXT con informacion de datos
 TIDY_DATA_DOWNLOAD_LOG_TEMPLATE_PATH = "modules/templates/data_tidying_log_template.txt"

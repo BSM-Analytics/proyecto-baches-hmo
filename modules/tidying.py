@@ -44,9 +44,9 @@ try:
     baches_agebs_hermosillo_cvs = os.path.join(config.TIDY_DATA_STORAGE_PATH, config.TIDY_BACHE_AGEB_DATA_FILENAME)
     socioeconomico_hermosillo_csv = os.path.join(config.TIDY_DATA_STORAGE_PATH, config.TIDY_SOCIOECONOMICO_DATA_FILENAME)
     socioeconomico_ageb_hermosillo_csv = os.path.join(config.TIDY_DATA_STORAGE_PATH, config.TIDY_SOCIOECONOMICO_AGEB_DATA_FILENAME)
-    baches_agebs_hermosillo.to_csv(baches_agebs_hermosillo_cvs, index=False)
+    baches_agebs_hermosillo.to_file(baches_agebs_hermosillo_cvs, index=False)
     socioeconomico_hermosillo.to_csv(socioeconomico_hermosillo_csv, index=False)
-    socioeconomico_ageb_hermosillo.to_csv(socioeconomico_ageb_hermosillo_csv, index=False)
+    socioeconomico_ageb_hermosillo.to_file(socioeconomico_ageb_hermosillo_csv, index=False)
 
     values = (
         join_baches_ageb_time,
