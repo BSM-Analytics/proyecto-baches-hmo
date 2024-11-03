@@ -249,5 +249,6 @@ def tidy_se_ageb_data(se_ageb_hermosillo:str):
     se_ageb_hermosillo['GM_2020'] = se_ageb_hermosillo['GM_2020'].astype('category')
     # Lo que haremos en socioeconomico hermosillo sera solamente escribir el tipo de cada columna correctamente
     socioeconomico_ageb_hermosillo = se_ageb_hermosillo[['CVEGEO','POB_TOT','IM_2020','GM_2020','IMN_2020','geometry']]
+    socioeconomico_ageb_hermosillo.to_crs(epsg=4326, inplace=True)
     #socioeconomico_ageb_hermosillo['geometry'] = socioeconomico_ageb_hermosillo['geometry'].apply(lambda x: x.wkt)
     return socioeconomico_ageb_hermosillo
