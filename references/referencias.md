@@ -11,3 +11,6 @@ https://www.inegi.org.mx/programas/ccpv/2010/#datos_abiertos
 
 Censo de Población y Vivienda 2020 proporcionado por el INEGI:
 https://www.inegi.org.mx/programas/ccpv/2020/#datos_abiertos
+
+Open-Meteo, Historical Weather API:
+https://open-meteo.com/en/docs/historical-weather-api
