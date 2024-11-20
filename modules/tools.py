@@ -7,6 +7,7 @@ import time, datetime # Importamos las libreria "time" y "datetime" para generar
 import geopandas as gpd # Importamos el modulo geopandas para manejo de datos georeferenciados
 from functools import wraps # Importamos la funcion wraps del paquete functools para medir tiempo con decoradores
 from shapely.geometry import Point # Importamos el metodo Point del modulo shapely
+from scipy.spatial import KDTree #Importamos el metodo KDTree del modulo scipy.spatial
 
 # Funciones para facilitar las tareas ejecutadas por el resto de los scripts para el ETL
 
@@ -205,6 +206,8 @@ def tidy_baches_agebs_data(baches_agebs_hermosillo):
     baches_agebs_hermosillo['longitude'] = pd.to_numeric(baches_agebs_hermosillo['longitude'])
     #baches_agebs_hermosillo['geometry'] = baches_agebs_hermosillo['geometry'].apply(lambda x: x.wkt)
 
+    baches_agebs_hermosillo = baches_duplicados(baches_agebs_hermosillo)
+
     return baches_agebs_hermosillo
 
 @exec_time
@@ -252,3 +255,50 @@ def tidy_se_ageb_data(se_ageb_hermosillo:str):
     socioeconomico_ageb_hermosillo.to_crs(epsg=4326, inplace=True)
     #socioeconomico_ageb_hermosillo['geometry'] = socioeconomico_ageb_hermosillo['geometry'].apply(lambda x: x.wkt)
     return socioeconomico_ageb_hermosillo
+
+
+def baches_duplicados(baches_agebs_hermosillo):
+    # Convertir a un sistema de referencia proyectado (metros) para medir distancias
+    gdf = baches_agebs_hermosillo.to_crs("EPSG:3857")
+
+    # Extraer las coordenadas de los puntos en metros
+    coordinates = [(geom.x, geom.y) for geom in gdf.geometry]
+
+    # Crear un KDTree con las coordenadas para encontrar vecinos cercanos
+    tree = KDTree(coordinates)
+    processed_indices = set()
+    new_data = []
+
+    # Recorrer cada punto en el GeoDataFrame
+    for i, point in enumerate(coordinates):
+        if i in processed_indices:
+            continue
+        
+        # Encontrar puntos dentro de un radio de 2 metros
+        indices = tree.query_ball_point(point, r=2)
+        processed_indices.update(indices)
+        
+        # Filtrar el GeoDataFrame original para estos índices
+        close_points = gdf.iloc[indices]
+
+        # Elegir un punto aleatorio de los puntos cercanos
+        random_point = close_points.geometry.sample(1).iloc[0]  # Elige aleatoriamente un punto
+
+        # Obtener la fecha más antigua y un `CVEGEO` al azar
+        oldest_date = close_points['date'].min()
+        random_ageb = close_points['CVEGEO'].sample(1).iloc[0]  # Elegir un `CVEGEO` al azar
+
+        # Guardar el resultado en una lista
+        new_data.append({
+            "date": oldest_date,
+            "CVEGEO": random_ageb,
+            "geometry": random_point  # Usar el punto aleatorio seleccionado
+        })
+
+    # Crear un nuevo GeoDataFrame con los resultados
+    new_gdf = gpd.GeoDataFrame(new_data, geometry="geometry", crs="EPSG:3857")
+
+    # Opcional: Convertir de nuevo a EPSG:4326 si necesitas las coordenadas originales
+    new_gdf = new_gdf.to_crs("EPSG:4326")
+
+    return new_gdf
