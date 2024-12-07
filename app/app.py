@@ -29,7 +29,7 @@ color_palette = {
     "indicator_text2":"#404040",
 }
 
-df_1_baches_clim = pd.read_csv(r"/Users/pher/Documents/proyecto_baches/dashboard/datos_dashboard/final/1_baches_clim.csv")
+df_1_baches_clim = pd.read_csv(r"1_baches_clim.csv")
 df_1_baches_clim["date"] = pd.to_datetime(df_1_baches_clim["date"])
 #dates = df_1_baches_clim.resample("D", on="date").count()
 
@@ -53,7 +53,7 @@ scatter_data = pd.DataFrame({
     'Atendido': df_1_baches_clim["atendido"]
 })
 
-df_2_1_geo_urb_ageb = gpd.read_file(r"/Users/pher/Documents/proyecto_baches/dashboard/datos_dashboard/final/2_geo_se.shp")
+df_2_1_geo_urb_ageb = gpd.read_file(r"2_geo_se.shp")
 #print(df_2_1_geo_urb_ageb.info())
 
 df_2_1_geo_urb_ageb = df_2_1_geo_urb_ageb.to_crs(epsg=4326)
